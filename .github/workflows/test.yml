@@ -18,12 +18,8 @@ jobs:
         shell: bash
         run: |
           exit 1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm i -g yarn
-      - run: yarn cache dir
       - name: Show versions
+        if: failure()
         run: |
           echo "node version: $(node -v)"
           echo "npm version: $(npm -v)"
